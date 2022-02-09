@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+/*program for transpose of matrix*/
+
+{
+    int mat[3][3],trans[3][3],row,col,i,j;
+    printf("enter row and col=");
+    scanf("%d%d",&row,&col);
+    printf("enter the elements of matrices :\n");
+    for(i=0;i<row;i++)
+    for(j=0;j<col;j++)
+    trans[j][i]=mat[i][j];
+    printf("transposed matrix is :\n");
+    for (i=0;i<col;i++)
+    {
+        for(j=0;j<row;j++)
+        printf("%d",trans[i][j]);
+        printf("\n");
+    }
+}
+

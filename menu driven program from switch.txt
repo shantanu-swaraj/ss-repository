@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main(void)
+{
+    int choice;
+    while(1)
+    {
+        printf("1.create database\n");
+        printf("2.insert new record\n");
+        printf("3.modify a record\n");
+        printf("4.delete  a record\n");
+        printf("5.dispaly all records\n");
+        printf("6.exit\n");
+        
+        printf("enter your choice: ");
+        scanf("%d",&choice);
+        
+        switch(choice)
+        {
+            case1 :
+                 printf ("database created ...\n\n");
+                 break;
+             
+            case2 :
+                printf("record inserted..\n \n");
+                break;
+            case3 :
+                printf("record modified..\n\n");
+                break;
+            case4 :
+                printf("record deleted..\n\n");
+                break;
+            case5 :
+                printf("record displayed..\n\n");
+                break;
+            case6 :
+                printf("exit");
+            default :
+                printf("wrong choice\n");
+        }
+    }
+return 0;
+    
+}
