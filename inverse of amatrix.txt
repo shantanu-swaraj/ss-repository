@@ -1,0 +1,128 @@
+// invese of a matrix
+
+#include <stdio.h>
+#include<string.h> //string.h is contains funcctions for manipulating arrays of character
+#include<stdlib.h> //standard input/output library
+#include<conio.h> //console input/output library
+
+int i,j,n,k,size=0,r,c; // row,column
+float num,determinent=0,inverse_matrix[max][max],     
+       matrix[max][max],new_matrix[max][max],matrix_minor[max][max],
+       matrix_transpose[max][max];
+
+float determinent(float matrix[max][max]);
+float minor(float matrix[max][max],int k);
+float transpose(float matrix[max][max]);
+
+int main()
+{
+    printf("\n degree of matrix :");
+    scanf("%d",&n);
+    printf("enetr elements of matrix: ");
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n;j++)
+            {
+                printf("\n %d,%d : ",i,j);
+                scanf("%d",&matrix[i][j]);
+                
+            }
+            printf("\n");
+        }
+        size=n;
+        determinent=determinent(matrix);
+        
+        if(determinent=0)
+        {
+            printf(" \n inverse of this matrix does not exist");
+            getch();
+            return 0;
+        }
+        else
+        {
+            num=1/determinent;
+            matrix_transpose[n][n]=transpose(matrix);
+            printf("\n\n matrix reverse is: \n\n");
+            for(i=1;i<=n;i++)
+            {
+                for(j=1;j<=n;j++)
+                {
+                    inverse_matrix[i][j]=num*matrix_transpose[i][j];
+                    if(inverse_matrix[i][j])
+                        printf("%d",inverse_matrix[i][j]);
+                    else
+                        printf("%d",inverse_matrix[i][j]);
+                        
+           
+                }
+                prinf("\n");
+            }
+        }
+    getch();
+        /*We use a getch () function in a C/ C++ program to hold the output screen for some 
+        time until the user passes a key from the keyboard to exit the console screen. Using getch () 
+        function, we can hide the input character provided by the users in the ATM PIN, password, etc.
+        Parameters: The getch () function does not accept any parameter from the user.*/
+    
+    return 0;
+}
+// caLCULATING determinent
+
+float determinent(float matrix[][])
+{
+    if(n==1)
+        return matrix[1][1];
+    else 
+    {
+        for(k=1;k<=n;k++)
+        {
+            determinent+=((-1)^(1+k))*matrix[1][k]*determinent
+                              (minor9matrix,k));
+                              n=size;
+        }
+    return determinent;
+        
+    }
+    
+}
+
+// caLCULATING minor
+
+float minor(float matrix[][],int k)
+{
+    int m=1,p,r,c,row=1,column;
+    column=k;
+    for(r=2;r<=n;r++)
+    {
+        p=1;
+        for(c=1;c<=n;C++)
+        {
+            p=1;
+            for(c=1;c<=n;c++)
+            {
+                if(r!=row &amp;amp; c!=column)
+                {
+                    new_matrix[m][p]=matrix[r][c];
+                    p++;
+                }
+                if(r!=row)
+                m++;
+            }
+            
+            
+        }
+    }
+    n--;
+    return new_matrix[m][p];
+        
+}
+
+// caLCULATING transpose
+
+float transpose(float matrix[][])
+{
+    for(int i=1;i<=n;i++)
+        for(j=1;j<=n;j++)
+            matrix_transpose[i][j]=matrix[j][i];
+    return matrix_transpose[n][n];
+}

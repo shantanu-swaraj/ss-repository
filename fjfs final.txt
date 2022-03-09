@@ -1,0 +1,47 @@
+//first come first serve program
+
+#include <stdio.h>
+int main()
+{
+    int n,burst_time[10],wait_time[10],turn_around_time[10],average_wait_time=0,average_turn_around_time=0,x,y;
+    printf("enter total number of proceess(maximum(10):");
+    scanf("%d",&n);
+    
+    printf("enter process burst_time:");
+    for(x=0;x<n;x++)
+    {
+        printf("%d:",x+1);
+        scanf("%d",&burst_time[x]);
+        
+    }
+    wait_time[0]=0;
+    
+    for(x=1;x<n;x++)
+    {
+        wait_time[x]=0;
+        for(y=0;y<x;y++)
+        {
+        wait_time[x]=wait_time[x]+burst_time[x];
+        
+        
+        }
+
+    }
+    
+    printf("\n process\t   burst_time\t  wait_time\t  turn_around_time\n");
+    for(x=0;x<n;x++)
+    {
+        turn_around_time[x]=burst_time[x]+wait_time[x];
+        average_wait_time+=wait_time[x];
+        average_turn_around_time+=turn_around_time[x];
+        printf("\n %d\t   %d\t\t   %d\t\t  %d\n",x,burst_time[x],wait_time[x],turn_around_time[x]);
+        
+    }
+    average_wait_time/=x;
+    average_turn_around_time/=x;
+    printf("average_wait_time:%d\n",average_wait_time);
+    printf("average_turn_around_time:%d\n",average_turn_around_time);
+    
+    return 0;
+
+}

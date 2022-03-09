@@ -1,0 +1,66 @@
+// shortest job first program
+
+#include <stdio.h>
+int main()
+{
+    int burst_time[10],p[10],wait_time[10],turn_around_time[10],x,y,n,pos,temp,total=0;
+    float average_wait_time,average_turn_around_time;
+    printf("enter number of process:");
+    scanf("%d",&n);
+    
+    printf("enter process burst_time:");
+    for(x=0;x<n;x++)
+    {
+        printf("%d:",x+1);
+        scanf("%d",&burst_time[x]);
+        p[x]=x+1;
+        
+    } // skipping from anywhere
+    
+    for(x=0;x<n;x++)
+    {
+        pos=x;
+        for(y=x+1;y<n;y++)
+        {
+            if(burst_time[y]<burst_time[pos])
+                pos=y;
+        }
+  
+        temp=burst_time[x];
+        burst_time[x]=burst_time[pos];
+        burst_time[pos]=temp;
+  
+        temp=p[x];
+        p[x]=p[pos];
+        p[pos]=temp;
+    }
+    wait_time[0]=0;
+    
+    for(x=1;x<n;x++)
+    {
+        wait_time[x]=0;
+        
+        for(y=0;y<x;y++)
+          wait_time[x]=wait_time[y]+burst_time[y];
+          
+        total+=wait_time[x];
+    }
+    average_wait_time=(float)total/n;
+    total=0;
+    
+    printf("process   burst_time     wait_time     turn_around_time");
+    for(x=0;x<n;x++)
+    {
+        turn_around_time[x]=burst_time[x]+wait_time[x];
+        total+=turn_around_time[x];
+        printf(" \np%d\t\t  %d\t\t  %d\t\t  %d" ,p[x],burst_time[x],wait_time[x],turn_around_time[x]);
+        
+    }
+    
+    average_turn_around_time=(float)total/n;
+    printf("\n average_wait_time=%f\n",average_wait_time);
+    printf("\n average_turn_around_time=%f\n",average_turn_around_time);
+    
+    return 0;
+}
+
