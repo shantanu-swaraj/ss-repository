@@ -1,0 +1,32 @@
+//insetion after given index of an array
+
+
+#include<stdio.h>
+#define MAX 4
+void main(){
+    int array[MAX]={1,2,4,5};
+    int n=4;  // no of elements in array
+    int i=0;  // loop variable
+    int index=1;  //index after which element is to be inserted
+    int value=8;  // value of element to be inserted
+    
+    printf("origional array \n");
+    for(i=0;i<n;i++){
+        printf("array[%d]=%d\n",i,array[i]);
+    }
+    
+    //now,shifting rest elemnts downward
+    for(i=n;i>=index+1;i--){
+        array[i+1]=array[i];
+    }
+    //adding new elemnt at first position
+    array[index+1]=value;
+    n=n++; //inc n to reflecxt no. of elements
+    printf("after insertion: \n");
+    for(i=0;i<=n;i++){
+        printf("array[%d]=%d\n",i,array[i]);
+        
+        
+    }
+    
+}

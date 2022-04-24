@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include<conio.h>
+#define MAX 3
+void create (int[3][3]);
+void display(int[3][3]);
+void mat_add(int[3][3],int[3][3],int[3][3]);
+void mat_mul(int[3][3],int[3][3],int[3][3]);
+void transpose(int[3][3],int[3][3]);
+int main()
+{
+    int mat1[3][3],mat2[3][3],mat3[3][3],mat4[3][3],mat5[3][3];
+  
+    printf("enter elements for first array:\n\n");
+    create(mat1);
+    
+    
+    printf("enter elements of second array:\n");
+    create(mat2);
+    printf("first array:\n");
+    display(mat1);
+    
+    printf("second array:\n");
+    display(mat2);
+    
+    mat_add(mat1,mat2,mat3);
+    printf("after addition:\n");
+    display(mat2);
+    
+    mat_mul(mat1,mat2,mat4);
+    printf("after multiplication \n");
+    display(mat4);
+    transpose(mat1,mat5);
+    printf("transpose of first matrix: \n");
+    display(mat5);
+    return 0;
+}
+//creating matrix matrix
+void create(int mat[3][3])
+{
+    int i,j;
+    for(i=0;i<MAX;i++)
+    {
+        for(j=0;j<MAX;j++)
+        {
+            printf("enter element:");
+            scanf("%d",&mat[i][j]);
+        }
+        
+    }
+    printf("\n");
+    
+}
+//displaying matrix
+void display(int mat[3][3])
+{
+    int i,j;
+    for(i=0;i<MAX;i++)
+    {
+        for(j=0;j<MAX;j++)
+            printf("%d\t",mat[i][j]);
+        printf("\n");
+    }
+
+}
+void mat_add(int m1[3][3],int m2[3][3],int m3[3][3])
+{
+    int i,j;
+    for(i=0;i<MAX;i++)
+    {
+        for(j=0;j<MAX;j++)
+            m3[i][j]=m1[i][j]+m2[i][j];
+    }
+}
+
+void mat_mul(int m1[3][3],int m2[3][3],int m3[3][3])
+{
+    int i,j,k; 
+    for(k=0;k<MAX;k++)
+    {
+        for(i=0;i<MAX;i++)
+        {
+            m3[k][i]=0;
+            for(j=0;j<MAX;j++)
+                m3[k][i]+=m1[k][i]*m2[j][i];
+        }
+    }
+}
+
+void transpose(int m1[3][3],int m2[3][3])
+{
+    int i,j;
+    for(i=0;i<MAX;i++)
+    {
+        for(j=0;j<MAX;j++)
+            m2[i][j]=m1[j][i];
+    }
+}
