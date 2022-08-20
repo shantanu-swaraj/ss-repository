@@ -1,1 +1,31 @@
+//LECTURE NO. 1
+//public class Main {
+//
+//	public Main() {
+//		
+//	}
+//
+//	public static void main(String[] args) {
+//		System.out.println("i love burgir\n");
+//		System.out.println("\t specially from burger king");
+//		System.out.println();
+//		//eclipse shortcut for printlnln statemetn -> sysout + ctrl+space
+//		
+//		
+//
+//	}
+//
+//}
+public class Main {
 
+	public static void main(String[] args) {
+		int c=369; // initialization
+//		int c;
+//		c=369;
+		//long x= 12357976987;
+		System.out.println("MY name is :"+c);
+		double b=369.963;
+		System.out.println("my fav no. is:"+b);
+		
+		}
+}
