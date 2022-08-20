@@ -1,4 +1,6 @@
 //LECTURE NO. 1
+
+//baisc print statement
 //public class Main {
 //
 //	public Main() {
@@ -16,6 +18,8 @@
 //	}
 //
 //}
+
+//use of data types
 public class Main {
 
 	public static void main(String[] args) {
