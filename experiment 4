@@ -1,0 +1,116 @@
+//class player 
+package player;
+
+public class player {
+
+	String name;
+    double weight;
+    int height; 
+    String Sports;
+
+    public player(String n, double d, int h)
+    {
+        this.name=n;
+        this.weight=d;
+        this.height=h;
+        this.Sports="N.A";
+    }
+    public void SetSports(String s)
+    {
+        this.Sports=s;
+    }
+    void printplayerDetails()
+    {
+        System.out.println("Name of the player : "+this.name);
+        System.out.println("Weight of the player : "+this.weight);
+        System.out.println("Height of the player : "+this.height);
+        System.out.println("Sports the player plays : "+this.Sports);
+    }
+
+}
+
+
+
+
+//class football_player
+package player;
+
+public class football_player extends player {
+
+	int NumOfGoals;
+    String NameOfClub;
+    String position;
+    
+    football_player(String n, float w, int h,int numGoals, String ClubName,String pos)
+    {
+        super(n,w,h);
+        this.Sports="Football";
+        this.NumOfGoals=numGoals;
+        this.NameOfClub=ClubName;
+        this.position=pos;
+    }
+
+    void printplayerDetails()
+    {
+        super.printplayerDetails();
+        System.out.println("Number of goals scored : "+this.NumOfGoals);
+        System.out.println("Name of the club : "+this.NameOfClub);
+        System.out.println("Position the player plays at : "+this.position);
+    }
+
+}
+
+
+
+
+
+//class cricket_player
+package player;
+
+public class cricket_player extends player  {
+	 int ranking;
+	    int Totalruns;
+	    int totalWickets;
+	    cricket_player(String n, float w, int h,int ranking, int totalruns, int totalWickets)
+	    {
+	        super(n,w,h);
+	        this.Sports="Cricket";
+	        this.ranking=ranking;
+	        this.Totalruns=totalruns;
+	        this.totalWickets=totalWickets;
+	    }
+	    @Override
+	    void printplayerDetails()
+	    {
+	        super.printplayerDetails();
+	        System.out.println("Ranking : "+this.ranking);
+	        System.out.println("Total runs scored : "+this.Totalruns);
+	        System.out.println("Total wickets : "+this.totalWickets);
+	    }
+
+}
+
+
+
+
+
+//class main.java 
+package player;
+
+public class main {
+	public static void main(String[] args)
+    {
+        player obj1 = new player("Sunil Chettri",75,175);
+        cricket_player obj2 = new cricket_player("Virat",78,178,1,10_000,11);
+        football_player obj3 = new football_player("Messi",75,170,88,"PSG","Center Forward");
+        
+
+        obj1.printplayerDetails();  
+        System.out.println();  
+        obj2.printplayerDetails();
+        System.out.println();
+        obj3.printplayerDetails();
+        System.out.println();
+        
+    }    
+}
